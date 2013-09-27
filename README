@@ -1,0 +1,21 @@
+gPodder 4 for Blackberry 10
+===========================
+
+This repository contains the packaging scripts and metadata needed to build a
+packaged version of gPodder 4 for Blackberry 10 containing local Qt 5.1 libs
+and using the system-wide Python 3.2 installation.
+
+Requirements:
+
+   - Blackberry 10 Native SDK
+   - Qt 5.1 modules built: qtbase, qtjsbackend, qtdeclarative, qtmultimedia
+   - PyOtherSide installed into Qt 5.1 QML plugins folder
+   - gPodder 4 Core
+   - gPodder QML UI Reference Implementation
+
+Usage:
+
+export QMAKE=/path/to/your/qt5.1-for-bb10/qmake
+export DEBUG_TOKEN=/path/to/your/debugtoken.bar
+sh build_package.sh
+blackberry-deploy -installApp -launchApp -password PASSWORD IP gpodder-bb10.bar
