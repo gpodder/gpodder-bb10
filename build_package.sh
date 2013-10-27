@@ -35,6 +35,7 @@ blackberry-nativepackager \
     -e gpodder-ui-qml/index.qml gpodder-ui-qml/index.qml \
     -e gpodder-ui-qml/qml gpodder-ui-qml/qml/ \
     -e gpodder-ui-qml/main.py gpodder-ui-qml/main.py \
+    -e podcastparser/podcastparser.py gpodder-ui-qml/podcastparser.py \
     $(for file in gpodder-core/src/*; do echo "-e $file gpodder-ui-qml/$(basename $file)"; done) \
     $(for file in ${QT_INSTALL_LIBS}/libQt5*.so.5; do echo "-e $file lib/$(basename $file)"; done) \
     -e ${QT_INSTALL_PLUGINS} plugins/ \
