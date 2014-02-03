@@ -32,9 +32,7 @@ blackberry-nativepackager \
     bar-descriptor.xml \
     $APP \
     ${APP}.png \
-    -e gpodder-ui-qml/index.qml gpodder-ui-qml/index.qml \
-    -e gpodder-ui-qml/qml gpodder-ui-qml/qml/ \
-    -e gpodder-ui-qml/common gpodder-ui-qml/qml/common/ \
+    -e gpodder-ui-qml/touch gpodder-ui-qml/touch/ \
     -e gpodder-ui-qml/main.py gpodder-ui-qml/main.py \
     -e podcastparser/podcastparser.py gpodder-ui-qml/podcastparser.py \
     $(for file in gpodder-core/src/*; do echo "-e $file gpodder-ui-qml/$(basename $file)"; done) \
