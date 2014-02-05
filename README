@@ -12,6 +12,7 @@ Requirements:
    - PyOtherSide installed into Qt 5.1 QML plugins folder
    - gPodder 4 Core
    - gPodder QML UI Reference Implementation
+   - podcastparser 0.2.1
 
 Usage:
 
