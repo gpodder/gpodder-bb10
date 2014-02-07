@@ -1,15 +1,15 @@
 #include <QGuiApplication>
 #include <QQuickView>
 #include <QFileInfo>
-#include <QFont>
+#include <QFontDatabase>
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
-    QFont font("Slate Pro");
-    font.setStretch(103);
-    font.setWeight(30);
-    app.setFont(font);
+
+    QFontDatabase::addApplicationFont("app/native/gpodder-ui-qml/touch/icons/iconic_fill.ttf");
+    QFontDatabase::addApplicationFont("app/native/gpodder-ui-qml/touch/fonts/source-sans-pro.extralight.ttf");
+
     QQuickView view;
     view.setSource(QUrl::fromLocalFile(QFileInfo("app/native/gpodder-ui-qml/touch/gpodder.qml").absoluteFilePath()));
     view.setResizeMode(QQuickView::SizeRootObjectToView);
