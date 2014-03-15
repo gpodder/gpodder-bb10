@@ -6,7 +6,7 @@
     <versionNumber>4.0.0</versionNumber>
     <buildId>1</buildId>
     <description>gPodder manages your podcasts.</description>
-    <copyright>2013</copyright>
+    <copyright>2014</copyright>
 
     <initialWindow>
         <systemChrome>none</systemChrome>

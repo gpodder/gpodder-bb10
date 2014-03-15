@@ -13,6 +13,7 @@ if [ "$QMAKE" = "" -o "$DEBUG_TOKEN" = "" ]; then
 
         QMAKE ............. Qt 5.1-for-BB10 qmake
         DEBUG_TOKEN ....... Debug token for deployment
+        PASSWORD .......... Password for signing (release only)
 
 EOF
     exit 1
@@ -25,10 +26,14 @@ QT_INSTALL_QML=$($QMAKE -query QT_INSTALL_QML)
 $QMAKE
 make $APP
 
+if [ "$1" == "release" ]; then
+    PACKAGE_ARGS="-package ${APP}-appworld.bar"
+else
+    PACKAGE_ARGS="-package ${APP}.bar -devMode -debugToken ${DEBUG_TOKEN}"
+fi
+
 blackberry-nativepackager \
-    -package ${APP}.bar \
-    -devMode \
-    -debugToken ${DEBUG_TOKEN} \
+    ${PACKAGE_ARGS} \
     bar-descriptor.xml \
     $APP \
     ${APP}.png \
@@ -40,3 +45,8 @@ blackberry-nativepackager \
     -e ${QT_INSTALL_PLUGINS} plugins/ \
     -e ${QT_INSTALL_QML} qml/
 
+if [ "$1" == "release" ]; then
+    blackberry-signer \
+        -storepass ${PASSWORD} \
+        ${APP}-appworld.bar
+fi
