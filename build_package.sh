@@ -23,18 +23,26 @@ QT_INSTALL_LIBS=$($QMAKE -query QT_INSTALL_LIBS)
 QT_INSTALL_PLUGINS=$($QMAKE -query QT_INSTALL_PLUGINS)
 QT_INSTALL_QML=$($QMAKE -query QT_INSTALL_QML)
 
+if [ "$PLAYBOOK" == "1" ]; then
+    BAR=gpodder-playbook
+    BAR_DESCRIPTOR=bar-descriptor.playbook.xml
+else
+    BAR=gpodder-bb10
+    BAR_DESCRIPTOR=bar-descriptor.xml
+fi
+
 $QMAKE
 make $APP
 
 if [ "$1" == "release" ]; then
-    PACKAGE_ARGS="-package ${APP}-appworld.bar"
+    PACKAGE_ARGS="-package ${BAR}-appworld.bar"
 else
-    PACKAGE_ARGS="-package ${APP}.bar -devMode -debugToken ${DEBUG_TOKEN}"
+    PACKAGE_ARGS="-package ${BAR}.bar -devMode -debugToken ${DEBUG_TOKEN}"
 fi
 
 blackberry-nativepackager \
     ${PACKAGE_ARGS} \
-    bar-descriptor.xml \
+    ${BAR_DESCRIPTOR} \
     $APP \
     ${APP}.png \
     -e gpodder-ui-qml/touch gpodder-ui-qml/touch/ \
@@ -48,5 +56,5 @@ blackberry-nativepackager \
 if [ "$1" == "release" ]; then
     blackberry-signer \
         -storepass ${PASSWORD} \
-        ${APP}-appworld.bar
+        ${BAR}-appworld.bar
 fi
