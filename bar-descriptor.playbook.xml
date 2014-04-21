@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <qnx>
-    <id>org.gpodder.playbook</id>
+    <id>org.gpodder.bb10</id>
     <filename>gpodder-bb10</filename>
     <name>gPodder</name>
-    <versionNumber>4.1.0</versionNumber>
+    <versionNumber>4.1.1</versionNumber>
     <buildId>1</buildId>
     <description>gPodder manages your podcasts.</description>
     <copyright>2014</copyright>
