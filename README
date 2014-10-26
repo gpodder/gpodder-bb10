@@ -16,14 +16,6 @@ Requirements:
 
 Usage:
 
-export QMAKE=/path/to/your/qt5.1-for-bb10/qmake
-export DEBUG_TOKEN=/path/to/your/debugtoken.bar
-sh build_package.sh
-blackberry-deploy -installApp -launchApp -password PASSWORD IP gpodder-bb10.bar
+bash build_package.sh /path/to/tokens/
 
-Release:
-
-export QMAKE=...
-export DEBUG_TOKEN=...
-export PASSWORD=...
-sh build_package.sh release
+blackberry-deploy -installApp -launchApp -password PASSWORD IP gpodder-...-...-debug.bar
