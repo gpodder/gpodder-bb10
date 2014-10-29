@@ -13,9 +13,3 @@ Requirements:
    - gPodder 4 Core
    - gPodder QML UI Reference Implementation
    - podcastparser 0.2.1
-
-Usage:
-
-bash build_package.sh /path/to/tokens/
-
-blackberry-deploy -installApp -launchApp -password PASSWORD IP gpodder-...-...-debug.bar
