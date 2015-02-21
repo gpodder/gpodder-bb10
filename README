@@ -13,3 +13,4 @@ Requirements:
    - gPodder 4 Core
    - gPodder QML UI Reference Implementation
    - podcastparser 0.2.1
+   - minidb 2.0.0
