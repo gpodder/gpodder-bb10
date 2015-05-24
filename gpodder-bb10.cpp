@@ -2,6 +2,7 @@
 #include <QQuickView>
 #include <QFileInfo>
 #include <QFontDatabase>
+#include <dlfcn.h>
 
 int main(int argc, char *argv[])
 {
